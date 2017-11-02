@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -83,20 +83,39 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>这里简单说明如何利用Hexo与Github的Pages来做个人博客。</p>
+<h2 id="步骤一"><a href="#步骤一" class="headerlink" title="步骤一"></a>步骤一</h2><h3 id="在github上建立一个仓库，名字为“你的github帐号名-github-io”-名字必须是这样的"><a href="#在github上建立一个仓库，名字为“你的github帐号名-github-io”-名字必须是这样的" class="headerlink" title="在github上建立一个仓库，名字为“你的github帐号名.github.io”,名字必须是这样的"></a>在github上建立一个仓库，名字为“你的github帐号名.github.io”,名字必须是这样的</h3><h2 id="步骤二-安装nodejs"><a href="#步骤二-安装nodejs" class="headerlink" title="步骤二  安装nodejs"></a>步骤二  安装nodejs</h2><p>​    下载按照nodejs</p>
+<h2 id="步骤三-安装hexo以及管理博客"><a href="#步骤三-安装hexo以及管理博客" class="headerlink" title="步骤三  安装hexo以及管理博客"></a>步骤三  安装hexo以及管理博客</h2><ol>
+<li>打开命令行工具 输入 npm install hexo-cli -g 安装hexo</li>
+<li>创建一个文件夹用来作为博客空间</li>
+<li>进入此目录后,输入hexo init </li>
+<li>接着输入npm install 安装一些依赖包</li>
+<li>直接输入hexo server -p 40000 这样就启动一个本地的服务器，可以访问目录生存的网页了。</li>
+</ol>
+<h2 id="步骤四-编写博客"><a href="#步骤四-编写博客" class="headerlink" title="步骤四 编写博客"></a>步骤四 编写博客</h2><ol>
+<li>​    在博客目录中的source&gt;_posts目录下建立md文件，编写博客</li>
+<li>输入命令 hexo -g 用来把md文件生存相关的html页面等数据</li>
+</ol>
+<h2 id="步骤五-上传本地资源到github上"><a href="#步骤五-上传本地资源到github上" class="headerlink" title="步骤五 上传本地资源到github上"></a>步骤五 上传本地资源到github上</h2><ol>
+<li><p>在博客目录中，找到配置文件_config.yml</p>
+</li>
+<li><p>找到deploy节输入下面的内容</p>
+<p>​</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> <span class="string">git</span></div><div class="line"><span class="attr">  repo:</span> <span class="string">你的github</span> <span class="string">pages地址（步骤一的设定）</span></div><div class="line"><span class="attr">  branch:</span> <span class="string">master</span></div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>可选的上传之前输入命令hexo clean清空本地一些缓存数据，以免这些内容也上传</p>
+</li>
+<li><p>输入命令npm install hexo-deployer-git –save安装部署器（以后的部署这个就不需要再安装了）</p>
+</li>
+<li><p>输入命令hexo d就可以部署了。如果想部署的同时生成html等资源，可以输入命令 hexo d -g</p>
+</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/02/hello-world/" data-id="cj9iif5xc00006o6r5bisx0gi" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/11/02/hello-world/" data-id="cj9iif5xc00006o6r5bisx0gi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -131,7 +150,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -152,7 +171,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 John Doe<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
